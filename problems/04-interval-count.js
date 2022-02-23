@@ -17,17 +17,15 @@ intervalCount(function() {
 ***********************************************************************/
 
 
-
 function intervalCount(cb, delay, amount) {
-  setInterval (() => {
-    cb()
-    amount--
-    if(amount === 0) {
-      clearInterval(intervalCount)
-    }
-  }, delay)
-
-}
+ let myInterval = setInterval(() => {
+      cb();
+      amount--;
+      if(amount === 0) {
+        clearInterval(myInterval)
+      }
+    }, delay)
+};
 
 intervalCount(function() {
   console.log('hi');
